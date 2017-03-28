@@ -37,11 +37,16 @@ public class Jump_Thing : MonoBehaviour {
 	{
 
 		if (gameObjectHittingme.gameObject.tag == "Floor") {
-			Debug.Log ("hitting ground");
+			//Debug.Log ("hitting ground");
 			hittingGround = true;
 
 		}
+		//if (gameObjectHittingme.gameObject.tag == "continue" && (Input.GetKey(KeyCode.Return))) {
+			//Debug.Log ("cont.");
+			//hittingGround = true;
+			//Application.LoadLevel ("Page 2");
 
+		//}
 		 
 	}
 

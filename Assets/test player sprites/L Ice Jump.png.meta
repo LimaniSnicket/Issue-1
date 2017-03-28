@@ -1,0 +1,160 @@
+fileFormatVersion: 2
+guid: 2afebb92931cf4f9eb9852c4a7f55e45
+timeCreated: 1490580235
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: L Ice Jump_0
+    21300002: L Ice Jump_1
+    21300004: L Ice Jump_2
+    21300006: L Ice Jump_3
+    21300008: L Ice Jump_4
+    21300010: L Ice Jump_5
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: L Ice Jump_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 14
+        width: 126
+        height: 188
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5996843}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: L Ice Jump_1
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 14
+        width: 126
+        height: 188
+      alignment: 9
+      pivot: {x: 0.5118988, y: 0.59769064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: L Ice Jump_2
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 22
+        width: 132
+        height: 199
+      alignment: 9
+      pivot: {x: 0.55962926, y: 0.5244853}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: L Ice Jump_3
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 18
+        width: 132
+        height: 199
+      alignment: 9
+      pivot: {x: 0.5511109, y: 0.5226018}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: L Ice Jump_4
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 19
+        width: 132
+        height: 199
+      alignment: 9
+      pivot: {x: 0.5539504, y: 0.52636874}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: L Ice Jump_5
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 17
+        width: 132
+        height: 199
+      alignment: 9
+      pivot: {x: 0.5454319, y: 0.52825224}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

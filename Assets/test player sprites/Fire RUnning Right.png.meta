@@ -1,0 +1,160 @@
+fileFormatVersion: 2
+guid: 56f3fc98c01404cf38b75ed41241a9d7
+timeCreated: 1490408235
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Fire RUnning Right_0
+    21300002: Fire RUnning Right_1
+    21300004: Fire RUnning Right_2
+    21300006: Fire RUnning Right_3
+    21300008: Fire RUnning Right_4
+    21300010: Fire RUnning Right_5
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fire RUnning Right_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1
+        width: 215
+        height: 246
+      alignment: 9
+      pivot: {x: 0.6585724, y: 0.45352015}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fire RUnning Right_1
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 1
+        width: 232
+        height: 204
+      alignment: 9
+      pivot: {x: 0.43088254, y: 0.5494915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fire RUnning Right_2
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 0
+        width: 156
+        height: 221
+      alignment: 9
+      pivot: {x: 0.488579, y: 0.5537464}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fire RUnning Right_3
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 1
+        width: 214
+        height: 208
+      alignment: 9
+      pivot: {x: 0.658188, y: 0.5314081}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fire RUnning Right_4
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 1
+        width: 154
+        height: 204
+      alignment: 9
+      pivot: {x: 0.65425885, y: 0.55240273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fire RUnning Right_5
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 1
+        width: 160
+        height: 220
+      alignment: 9
+      pivot: {x: 0.47030488, y: 0.5539908}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,160 @@
+fileFormatVersion: 2
+guid: 08a544d68c94d458e87a267720558c31
+timeCreated: 1490572092
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Wind Running Right_0
+    21300002: Wind Running Right_1
+    21300004: Wind Running Right_2
+    21300006: Wind Running Right_3
+    21300008: Wind Running Right_4
+    21300010: Wind Running Right_5
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wind Running Right_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 263
+        height: 246
+      alignment: 9
+      pivot: {x: 0.5463854, y: 0.46032718}
+      border: {x: 2, y: 3, z: 7, w: 2}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Wind Running Right_1
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 0
+        width: 263
+        height: 246
+      alignment: 9
+      pivot: {x: 0.49072278, y: 0.46528628}
+      border: {x: 16, y: 3, z: 3, w: 12}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Wind Running Right_2
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 0
+        width: 263
+        height: 232
+      alignment: 9
+      pivot: {x: 0.40259022, y: 0.48512268}
+      border: {x: 13, y: 3, z: 29, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Wind Running Right_3
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 0
+        width: 263
+        height: 229
+      alignment: 9
+      pivot: {x: 0.54638535, y: 0.4553681}
+      border: {x: 2, y: 3, z: 23, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Wind Running Right_4
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 0
+        width: 263
+        height: 246
+      alignment: 9
+      pivot: {x: 0.49768066, y: 0.46776584}
+      border: {x: 16, y: 3, z: 25, w: 17}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Wind Running Right_5
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 0
+        width: 263
+        height: 246
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 9, y: 2, z: 39, w: 14}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

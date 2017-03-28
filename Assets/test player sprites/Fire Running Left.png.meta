@@ -1,0 +1,160 @@
+fileFormatVersion: 2
+guid: 7501b55f253284c16ac34dc8321b38bb
+timeCreated: 1490386772
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Fire Running Left_0
+    21300002: Fire Running Left_1
+    21300004: Fire Running Left_2
+    21300006: Fire Running Left_3
+    21300008: Fire Running Left_4
+    21300010: Fire Running Left_5
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fire Running Left_0
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 1
+        width: 160
+        height: 220
+      alignment: 9
+      pivot: {x: 0.52220154, y: 0.55651313}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fire Running Left_1
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 1
+        width: 154
+        height: 204
+      alignment: 9
+      pivot: {x: 0.33725253, y: 0.5607961}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fire Running Left_2
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1
+        width: 214
+        height: 208
+      alignment: 9
+      pivot: {x: 0.3382089, y: 0.5459624}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fire Running Left_3
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 0
+        width: 156
+        height: 221
+      alignment: 9
+      pivot: {x: 0.5066255, y: 0.55611944}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fire Running Left_4
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 1
+        width: 232
+        height: 204
+      alignment: 9
+      pivot: {x: 0.5657096, y: 0.55446315}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fire Running Left_5
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 1
+        width: 215
+        height: 246
+      alignment: 9
+      pivot: {x: 0.3413648, y: 0.4548355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
