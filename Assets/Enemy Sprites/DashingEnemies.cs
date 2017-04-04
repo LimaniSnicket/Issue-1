@@ -211,12 +211,7 @@ public class DashingEnemies : MonoBehaviour {
 			enemyHurt = false;
 		}
 
-		//loading in attacking sprite here 
-		//if (gameObjectHittingme.gameObject.tag == "Player" && playerIsAttacking == false) {
-			//showSprite.sprite = dashingSprite [1];
-		//} else {
-		//	showSprite.sprite = dashingSprite [0];
-		//}
+
 
 			
 	

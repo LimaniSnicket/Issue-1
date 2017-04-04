@@ -100,7 +100,7 @@ public class BossScript : MonoBehaviour {
 		if (talkPhase == false && bossHealth >= 10) {
 			bossTimer = bossTimer + Time.deltaTime;
 		} else if (bossHealth <= 10) {
-			bossTimer = bossTimer + 2 * Time.deltaTime;
+			bossTimer = bossTimer + 2 * Time.deltaTime; //makes the boss movement super duper speed up once it's health is below a certain point
 		}
 
 		if (bossTimer >= 20) {
@@ -167,7 +167,7 @@ public class BossScript : MonoBehaviour {
 			activeShield.sprite = shieldPic [0];
 		}
 
-		 if (bossTimer >= 0 && bossTimer <= 5){
+		 if (bossTimer >= 0 && bossTimer <= 5){ // yo chit if you could get the boss to spawn within a random range instead of specific points that would be rad
 			currentPos.x = 7.83f;
 			currentPos.y = -1.54f;
 			fireHeal = true;
@@ -243,14 +243,14 @@ public class BossScript : MonoBehaviour {
 	//		bossPose.sprite = bossSprite [3];
 			//let's try that shit 
 
-			//works, litty 
+			//This code works but I turned it off cause it was kind of annoying gameplay wise
 	//	}
 
 
 		transform.position = currentPos;
 
 		if(bossHealth <= 0){
-			Application.LoadLevel ("Win Screen");
+			Application.LoadLevel ("Win Screen"); //winning this bitch woot
 		}
 	}
 
@@ -291,7 +291,7 @@ public class BossScript : MonoBehaviour {
 		} else if (battlephase == true && shieldTwoActive == true && iceHover == true && iceHeal == false && (triggerHittingMe.gameObject.tag == "bullet")){
 			shieldTwoStrength = shieldTwoStrength - 15f;
 			Destroy (triggerHittingMe.gameObject);
-		}
+		} //this code essentially gets all the elemental healing working properly
 
 
 		if (triggerHittingMe.gameObject.tag == "bullet" && fireHover == true && fireHeal == true && shieldOneActive == true){

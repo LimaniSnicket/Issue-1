@@ -27,6 +27,8 @@ public class TestPlayer : MonoBehaviour {
 	public bool playerIsBoosted = false;
 	public bool playerIsShooting = false;
 
+
+	//need these for animation - distinguishes between up shoot and down shoot
 	public bool upAim;
 	public bool downAim;
 
@@ -82,11 +84,6 @@ public class TestPlayer : MonoBehaviour {
 
 	public Animator playerAnim;
 
-	//animation bools oh boy here we go
-	bool runningLeft;
-	bool idlingLeft;
-	bool runningRight;
-	bool idlingRight;
 
 
 	//audio goes here i guess
@@ -113,7 +110,7 @@ public class TestPlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//showSprite.sprite = testSprite [0];
+		
 		playerSprite = GetComponent<Rigidbody2D> ();
 
 		chargeDisplay.sprite = leftCharge [0];
@@ -132,6 +129,8 @@ public class TestPlayer : MonoBehaviour {
 
 		//Movement code here
 		Vector3 currentPos = transform.position;
+
+		//ANIMATION BOOLS DONT TOUCH PLEASE
 
 		playerAnim.SetBool ("FireHover", fireHover);
 		playerAnim.SetBool ("WindHover", windHover);
@@ -200,9 +199,13 @@ public class TestPlayer : MonoBehaviour {
 			chargeDisplay.sprite = leftCharge [0];
 		}
 
-		if (playerIsJumping == true && playerIsBoosted == true) {
+		if (playerIsJumping == true && (Input.GetKeyUp (KeyCode.LeftShift))) {
 			source.PlayOneShot(boost);
 		}
+		if (Input.GetKeyDown (KeyCode.W)){
+			source.PlayOneShot (jump);
+		}
+
 		if (hittingGround == true) {
 			playerIsBoosted = false;
 		}
@@ -535,12 +538,11 @@ public class TestPlayer : MonoBehaviour {
 			hpDisplay.sprite = currentHP [20];
 
 		}
-		if (playerIsDead) {
-			//Application.LoadLevel ("Game Over You suck"); //loads game over scene 
+		if (playerIsDead) { //shows death sprite for a bit and locks player action
 			playerIsMoving = false;
 			playerIsShooting = false;
 			playerIsAttacking = false;
-			timeSinceDeath = timeSinceDeath - Time.deltaTime;
+			timeSinceDeath = timeSinceDeath - 2 * Time.deltaTime;
 		}
 		if (timeSinceDeath <= 0 && levelOne == true) {
 			Application.LoadLevel ("Game Over You suck"); //loads different game over scene so the player can go back to where they left off

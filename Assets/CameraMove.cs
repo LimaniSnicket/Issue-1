@@ -8,6 +8,9 @@ public class CameraMove : MonoBehaviour {
 
 	public float maxY = 1f;
 
+	public bool finalBattle;
+	public GameObject player;
+
 
 	public bool textOne = true;
 	public bool textTwo = false;
@@ -29,7 +32,9 @@ public class CameraMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 currentPos = transform.position;
+		if (finalBattle){
 		currentPos.y += cameraPan * Time.deltaTime;
+
 		if (textOne == true && (Input.GetKeyUp (KeyCode.Return))) {
 			textTwo = true;
 			textOne = false;
@@ -55,17 +60,22 @@ public class CameraMove : MonoBehaviour {
 			talkPhase = false;
 
 		}
+		}
 
-		if (talkPhase == true) {
+		if (talkPhase == true && finalBattle == true) {
 			currentPos.y = -2.59f;
 		} 
 
-		if (talkPhase == false  && currentPos.y < 1){
+		if (talkPhase == false  && currentPos.y < 1 && finalBattle == true){
 			currentPos.y = maxY;
 		} else if (currentPos.y >= 1){
 			currentPos.y = 1f;
 		}
 
-		transform.position = currentPos;
+		if (finalBattle == false) {
+			currentPos = player.transform.position;
+		}
+
+		transform.position = new Vector3 (currentPos.x, currentPos.y, -7.2f);//currentPos;
 	}
 }
