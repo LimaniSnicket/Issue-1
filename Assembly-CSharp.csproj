@@ -54,8 +54,10 @@
      <Compile Include="Assets\Enemy Sprites\DashingEnemies.cs" />
      <Compile Include="Assets\Enemy Sprites\JumpEnemyScript.cs" />
      <Compile Include="Assets\Enemy Sprites\ShootingEnemies.cs" />
+     <Compile Include="Assets\InfoCam.cs" />
      <Compile Include="Assets\Jump_Thing.cs" />
      <Compile Include="Assets\PanelScript.cs" />
+     <Compile Include="Assets\PauseScript.cs" />
      <Compile Include="Assets\ProjectileCollisionDetection.cs" />
      <Compile Include="Assets\ShooterAI.cs" />
      <Compile Include="Assets\StartScene.cs" />

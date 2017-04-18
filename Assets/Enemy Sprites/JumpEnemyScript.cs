@@ -13,6 +13,8 @@ public class JumpEnemyScript : MonoBehaviour {
 
 	public float moveSpeed;
 
+	public bool gamePaused = false;
+
 
 	public bool enemyAttack = false;
 	public float basicEnemyHealth = 10;
@@ -54,62 +56,72 @@ public class JumpEnemyScript : MonoBehaviour {
 	{
 		Vector3 currentPos = transform.position;
 
-
-		if (hittingGround == true ){ //key command that triggers jumping
-			enemySprite.AddForce(transform.up*jump_Height,ForceMode2D.Impulse);
-			hittingGround = false;
+		if (gamePaused == false && Input.GetKeyUp (KeyCode.P)) {
+			gamePaused = true;
+		} else if (gamePaused == true && Input.GetKeyUp (KeyCode.P)) {
+			gamePaused = false;
 		}
 
-		if (basicEnemyHealth < 1) {
-			basicEnemyDead = true;
-			enemyAttack = false;
-			//showSprite.sprite = jumpingSprite [2];
-			Destroy(gameObject);
-		}
+		if (gamePaused == false) {
+
+
+			if (hittingGround == true) { //key command that triggers jumping
+				enemySprite.AddForce (transform.up * jump_Height, ForceMode2D.Impulse);
+				hittingGround = false;
+			}
+
+			if (basicEnemyHealth < 1) {
+				basicEnemyDead = true;
+				enemyAttack = false;
+				//showSprite.sprite = jumpingSprite [2];
+				Destroy (gameObject);
+			}
 			
 
-		if (Input.GetKey (KeyCode.Space)) {
-			playerIsAttacking = true;
-		} else {
-			playerIsAttacking = false;
-		}
+			if (Input.GetKey (KeyCode.Space)) {
+				playerIsAttacking = true;
+			} else {
+				playerIsAttacking = false;
+			}
 
-		currentPos.x += moveSpeed * Time.deltaTime;
-		if (currentPos.x > maxX ) {
-			currentPos.x = maxX;
-			moveSpeed = -moveSpeed;
-		}
-		if (currentPos.x < minX) {
-			currentPos.x = minX;
-			moveSpeed = -moveSpeed;
-		}
+			currentPos.x += moveSpeed * Time.deltaTime;
+			if (currentPos.x > maxX) {
+				currentPos.x = maxX;
+				moveSpeed = -moveSpeed;
+			}
+			if (currentPos.x < minX) {
+				currentPos.x = minX;
+				moveSpeed = -moveSpeed;
+			}
 
-		//elemental hover + Bullet stuff
-		if (fireHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
-			windHover = true;
-			fireHover = false;
-		} else if (windHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
-			windHover = false;
-			lightHover = true;
-		} else if (lightHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
-			lightHover = false;
-			iceHover = true;
-		} else if (iceHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
-			fireHover = true;
-			iceHover = false;
-		}
+			//elemental hover + Bullet stuff
+			if (fireHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
+				windHover = true;
+				fireHover = false;
+			} else if (windHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
+				windHover = false;
+				lightHover = true;
+			} else if (lightHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
+				lightHover = false;
+				iceHover = true;
+			} else if (iceHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
+				fireHover = true;
+				iceHover = false;
+			}
 
-		if (enemyHurt) {
-			showSprite.sprite = jumpingSprite [2];
-		} 
-		//making sure enemy knows if player is facing them or not
-		if (Input.GetKey (KeyCode.D)) {
-			playerFacingRight = true;
-		} else if (Input.GetKey (KeyCode.A)) {
-			playerFacingRight = false;
-		}
+			if (enemyHurt) {
+				showSprite.sprite = jumpingSprite [2];
+			} 
+			//making sure enemy knows if player is facing them or not
+			if (Input.GetKey (KeyCode.D)) {
+				playerFacingRight = true;
+			} else if (Input.GetKey (KeyCode.A)) {
+				playerFacingRight = false;
+			}
 
-		transform.position = currentPos;
+			transform.position = currentPos;
+
+		}
 
 
 	}

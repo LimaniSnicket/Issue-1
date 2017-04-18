@@ -11,6 +11,8 @@ public class DashingEnemies : MonoBehaviour {
 
 	public float moveSpeed;
 
+	public bool gamePaused = false;
+
 
 	public bool basicEnemyAttack = false;
 	public float basicEnemyHealth;
@@ -57,6 +59,14 @@ public class DashingEnemies : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 currentPos = transform.position;
+
+		if (gamePaused == false && Input.GetKeyUp (KeyCode.P)) {
+			gamePaused = true;
+		} else if (gamePaused == true && Input.GetKeyUp (KeyCode.P)) {
+			gamePaused = false;
+		}
+
+		if (gamePaused == false){
 	
 		if (basicEnemyHealth < 1) {
 			basicEnemyDead = true;
@@ -128,6 +138,7 @@ public class DashingEnemies : MonoBehaviour {
 
 		transform.position = currentPos;
 		//player.transform.position = playerPos;
+		}
 	}
 	void OnCollisionEnter2D (Collision2D gameObjectHittingme)
 	{

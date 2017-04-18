@@ -15,6 +15,8 @@ public class PanelScript : MonoBehaviour {
 
 	public float moveSpeed;
 
+	public bool gamePaused = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -23,6 +25,14 @@ public class PanelScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 currentPos = transform.position;
+
+		if (gamePaused == false && Input.GetKeyUp (KeyCode.P)) {
+			gamePaused = true;
+		} else if (gamePaused == true && Input.GetKeyUp (KeyCode.P)) {
+			gamePaused = false;
+		}
+
+		if (gamePaused == false){
 
 		currentPos.y += moveSpeed * Time.deltaTime;
 		if (currentPos.y > maxY && movingY == true) {
@@ -34,5 +44,7 @@ public class PanelScript : MonoBehaviour {
 		}
 
 		transform.position = currentPos;
+
+		}
 	}
 }

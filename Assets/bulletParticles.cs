@@ -37,7 +37,7 @@ public class bulletParticles : MonoBehaviour {
 			Vector3 newObjPos = newObject.transform.position;
 			newObjPos.x = currentPos.x -.1f;
 			newObjPos.y = currentPos.y -.1f;
-			bulletParticle.AddForce (new Vector2 (10, 0), ForceMode2D.Impulse);
+			bulletParticle.AddForce (new Vector2 (1, 0), ForceMode2D.Impulse);
 			newObject.transform.position = newObjPos;
 			playerMana = playerMana - 4;
 		} else if (fireHover == true && (Input.GetKeyUp (KeyCode.LeftArrow)) && playerMana > 4) {
@@ -47,7 +47,7 @@ public class bulletParticles : MonoBehaviour {
 			Vector3 newObjPos = newObject.transform.position;
 			newObjPos.x = currentPos.x - .1f;
 			newObjPos.y = currentPos.y - .1f;
-			bulletParticle.AddForce (new Vector2 (-10, 0), ForceMode2D.Impulse);
+			bulletParticle.AddForce (new Vector2 (-1, 0), ForceMode2D.Impulse);
 			newObject.transform.position = newObjPos;
 			playerMana = playerMana - 4;
 		} else if (fireHover == true && (Input.GetKeyUp (KeyCode.UpArrow)) && playerMana > 4) {
@@ -57,7 +57,7 @@ public class bulletParticles : MonoBehaviour {
 			Vector3 newObjPos = newObject.transform.position;
 			newObjPos.x = currentPos.x;
 			newObjPos.y = currentPos.y + .1f;
-			bulletParticle.AddForce (new Vector2 (0, 10), ForceMode2D.Impulse);
+			bulletParticle.AddForce (new Vector2 (0, 1), ForceMode2D.Impulse);
 			newObject.transform.position = newObjPos;
 			playerMana = playerMana - 4;
 		}

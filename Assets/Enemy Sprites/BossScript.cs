@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossScript : MonoBehaviour {
 
+	public bool gamePaused = false;
+
 	public bool talkPhase = true;
 	public bool battlephase = false;
 
@@ -90,168 +92,158 @@ public class BossScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//for the shooting ai
-		distanceFromPlayer = transform.position.x - player.transform.position.x;
-
-		ShootPlayer ();
-
-		Vector3 currentPos = transform.position;
-
-		if (talkPhase == false && bossHealth >= 10) {
-			bossTimer = bossTimer + Time.deltaTime;
-		} else if (bossHealth <= 10) {
-			bossTimer = bossTimer + 2 * Time.deltaTime; //makes the boss movement super duper speed up once it's health is below a certain point
-		}
-
-		if (bossTimer >= 20) {
-			bossTimer = 0; //resets boss timer so boss movement doesn't stop
-		}
-
-		//cycling through text in the beginning of the stage
-		if (textOne == true && (Input.GetKeyUp (KeyCode.Return))) {
-			activeText.sprite = textPic [1];
-			textTwo = true;
-			textOne = false;
-		} else if (textTwo == true && (Input.GetKeyUp (KeyCode.Return))){
-			activeText.sprite = textPic [2];
-			textTwo = false;
-			textThree = true;
-		} else if (textThree == true && (Input.GetKeyUp (KeyCode.Return))){
-			activeText.sprite = textPic [3];
-			textThree = false;
-			textFour = true;
-		} else if (textFour == true && (Input.GetKeyUp (KeyCode.Return))){
-			activeText.sprite = textPic [4];
-			textFour = false;
-			textFive = true;
-		} else if (textFive == true && (Input.GetKeyUp (KeyCode.Return))){
-			activeText.sprite = textPic [5];
-			textFive = false;
-			textSix = true;
-		} else if (textSix == true && (Input.GetKeyUp (KeyCode.Return))){
-			activeText.sprite = textPic [6];
-			textSix = false;
-			textSeven = true;
-		} else if (textSeven == true && (Input.GetKeyUp (KeyCode.Return))){
-			activeText.sprite = textPic [7];
-			textSeven = false;
-			textEight = true;
-		} else if (textEight == true && (Input.GetKeyUp (KeyCode.Return))) {
-			talkPhase = false;
-			battlephase = true;
-			currentPos.x = startPosX;
-			currentPos.y = startPosY;
-		}
-		//getting shields to work only after all the text boxes have been cycled through
-		if (battlephase && shieldOneStrength > 0) {
-			shieldOneActive = true;
-			bossVulnerable = false;
-			activeShield.sprite = shieldPic [1];
-			bossPose.sprite = bossSprite [1];
-
-		} else if (shieldOneStrength <= 0 && shieldTwoActive == false) {
-			shieldOneActive = false;
-			vulnerableTime = vulnerableTime + Time.deltaTime;
-			activeShield.sprite = shieldPic [0];
-			bossVulnerable = true;
-		}
-
-		if (battlephase && shieldTwoStrength > 0 && vulnerableTime >= 3) {
-			shieldTwoActive = true;
-			activeShield.sprite = shieldPic [2];
-			vulnerableTime = 0;
-			bossVulnerable = false;
-			bossPose.sprite = bossSprite [2];
-		} else if (shieldTwoStrength <= 0) {
-			shieldTwoActive = false;
-			activeShield.sprite = shieldPic [0];
-		}
-
-		 if (bossTimer >= 0 && bossTimer <= 5){ // yo chit if you could get the boss to spawn within a random range instead of specific points that would be rad
-			currentPos.x = 7.83f;
-			currentPos.y = -1.54f;
-			fireHeal = true;
-			windHeal = false;
-			lightHeal = false;
-			iceHeal = false;
-	    } else if (bossTimer >= 5 && bossTimer <= 10) {
-			currentPos.x = 0f;
-			currentPos.y = 2.61f;
-			fireHeal = false;
-			windHeal = true;
-			lightHeal = false;
-			iceHeal = false;
-		} else if (bossTimer >= 10 && bossTimer <= 15) {
-			currentPos.x = -3.94f;
-			currentPos.y = -0.04f;
-			fireHeal = false;
-			windHeal = false;
-			lightHeal = true;
-			iceHeal = false;
-		} else if (bossTimer >= 15 && bossTimer < 20) {
-			currentPos.x = 6.05f;
-			currentPos.y = 3.17f;
-			fireHeal = false;
-			windHeal = false;
-			lightHeal = false;
-			iceHeal = true;
-		} 
-
-		//player attacking timer for more precise attacking
-		if (playerIsAttacking) {
-			playerAttackingTime = playerAttackingTime - 5f*Time.deltaTime;
-		}
-		if (playerAttackingTime > 0 && (Input.GetKey (KeyCode.Space))) {
-			playerIsAttacking = true;
-			playerIsntAttacking = false;
-		} else {
-			playerIsAttacking = false;
-			playerIsntAttacking = true;
-		}
-		if (playerIsntAttacking == true && (Input.GetKeyUp (KeyCode.Space))) {
-			playerAttackingTime = 2f;
+		if (gamePaused == false && Input.GetKeyUp (KeyCode.P)) {
+			gamePaused = true;
+		} else if (gamePaused == true && Input.GetKeyUp (KeyCode.P)) {
+			gamePaused = false;
 		}
 			
+			//for the shooting ai
+			distanceFromPlayer = transform.position.x - player.transform.position.x;
 
-		//elemental hover + Bullet stuff
-		if (fireHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
-			windHover = true;
-			fireHover = false;
-		} else if (windHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
-			windHover = false;
-			lightHover = true;
-		} else if (lightHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
-			lightHover = false;
-			iceHover = true;
-		} else if (iceHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
-			fireHover = true;
-			iceHover = false;
+			ShootPlayer ();
+
+			Vector3 currentPos = transform.position;
+		if (gamePaused == false) {
+			if (talkPhase == false && bossHealth >= 10) {
+				bossTimer = bossTimer + Time.deltaTime;
+			} else if (bossHealth <= 10) {
+				bossTimer = bossTimer + 2 * Time.deltaTime; //makes the boss movement super duper speed up once it's health is below a certain point
+			}
+
 		}
 
+			if (bossTimer >= 20) {
+				bossTimer = 0; //resets boss timer so boss movement doesn't stop
+			}
 
+			//cycling through text in the beginning of the stage
+			if (textOne == true && (Input.GetKeyUp (KeyCode.Return))) {
+				activeText.sprite = textPic [1];
+				textTwo = true;
+				textOne = false;
+			} else if (textTwo == true && (Input.GetKeyUp (KeyCode.Return))) {
+				activeText.sprite = textPic [2];
+				textTwo = false;
+				textThree = true;
+			} else if (textThree == true && (Input.GetKeyUp (KeyCode.Return))) {
+				activeText.sprite = textPic [3];
+				textThree = false;
+				textFour = true;
+			} else if (textFour == true && (Input.GetKeyUp (KeyCode.Return))) {
+				activeText.sprite = textPic [4];
+				textFour = false;
+				textFive = true;
+			} else if (textFive == true && (Input.GetKeyUp (KeyCode.Return))) {
+				activeText.sprite = textPic [5];
+				textFive = false;
+				textSix = true;
+			} else if (textSix == true && (Input.GetKeyUp (KeyCode.Return))) {
+				activeText.sprite = textPic [6];
+				textSix = false;
+				textSeven = true;
+			} else if (textSeven == true && (Input.GetKeyUp (KeyCode.Return))) {
+				activeText.sprite = textPic [7];
+				textSeven = false;
+				textEight = true;
+			} else if (textEight == true && (Input.GetKeyUp (KeyCode.Return))) {
+				talkPhase = false;
+				battlephase = true;
+				currentPos.x = startPosX;
+				currentPos.y = startPosY;
+			}
+			//getting shields to work only after all the text boxes have been cycled through
+			if (battlephase && shieldOneStrength > 0) {
+				shieldOneActive = true;
+				bossVulnerable = false;
+				activeShield.sprite = shieldPic [1];
+				bossPose.sprite = bossSprite [1];
 
-		//spawning in an enemy????
-	//	enemyTimer += Time.deltaTime;
-	//	if (enemyTimer >= enemyCoolDown && bossHealth <= 40 && bossHealth >= 35) {
-	//		GameObject newObject = Instantiate (lowEnemy) as GameObject;
-	//		Rigidbody2D dashSprite = newObject.GetComponent<Rigidbody2D> ();
-	//		Vector3 newObjPos = newObject.transform.position;
-	//		newObjPos.x = Random.Range(-2,0);
-	//		newObjPos.y = -3.09f;
-	//		newObject.transform.position = newObjPos;
-	//		enemyTimer = 0;
-	//		bossPose.sprite = bossSprite [3];
-			//let's try that shit 
+			} else if (shieldOneStrength <= 0 && shieldTwoActive == false) {
+				shieldOneActive = false;
+				vulnerableTime = vulnerableTime + Time.deltaTime;
+				activeShield.sprite = shieldPic [0];
+				bossVulnerable = true;
+			}
 
-			//This code works but I turned it off cause it was kind of annoying gameplay wise
-	//	}
+			if (battlephase && shieldTwoStrength > 0 && vulnerableTime >= 3) {
+				shieldTwoActive = true;
+				activeShield.sprite = shieldPic [2];
+				vulnerableTime = 0;
+				bossVulnerable = false;
+				bossPose.sprite = bossSprite [2];
+			} else if (shieldTwoStrength <= 0) {
+				shieldTwoActive = false;
+				activeShield.sprite = shieldPic [0];
+			}
 
+			if (bossTimer >= 0 && bossTimer <= 5) { // yo chit if you could get the boss to spawn within a random range instead of specific points that would be rad
+				currentPos.x = 7.83f;
+				currentPos.y = -1.54f;
+				fireHeal = true;
+				windHeal = false;
+				lightHeal = false;
+				iceHeal = false;
+			} else if (bossTimer >= 5 && bossTimer <= 10) {
+				currentPos.x = 0f;
+				currentPos.y = 2.61f;
+				fireHeal = false;
+				windHeal = true;
+				lightHeal = false;
+				iceHeal = false;
+			} else if (bossTimer >= 10 && bossTimer <= 15) {
+				currentPos.x = -3.94f;
+				currentPos.y = -0.04f;
+				fireHeal = false;
+				windHeal = false;
+				lightHeal = true;
+				iceHeal = false;
+			} else if (bossTimer >= 15 && bossTimer < 20) {
+				currentPos.x = 6.05f;
+				currentPos.y = 3.17f;
+				fireHeal = false;
+				windHeal = false;
+				lightHeal = false;
+				iceHeal = true;
+			} 
 
-		transform.position = currentPos;
+			//player attacking timer for more precise attacking
+			if (playerIsAttacking) {
+				playerAttackingTime = playerAttackingTime - 5f * Time.deltaTime;
+			}
+			if (playerAttackingTime > 0 && (Input.GetKey (KeyCode.Space))) {
+				playerIsAttacking = true;
+				playerIsntAttacking = false;
+			} else {
+				playerIsAttacking = false;
+				playerIsntAttacking = true;
+			}
+			if (playerIsntAttacking == true && (Input.GetKeyUp (KeyCode.Space))) {
+				playerAttackingTime = 2f;
+			}
+			
 
-		if(bossHealth <= 0){
-			Application.LoadLevel ("Win Screen"); //winning this bitch woot
-		}
+			//elemental hover + Bullet stuff
+			if (fireHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
+				windHover = true;
+				fireHover = false;
+			} else if (windHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
+				windHover = false;
+				lightHover = true;
+			} else if (lightHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
+				lightHover = false;
+				iceHover = true;
+			} else if (iceHover == true && (Input.GetKeyUp (KeyCode.RightShift))) {
+				fireHover = true;
+				iceHover = false;
+			}
+
+			transform.position = currentPos;
+
+			if (bossHealth <= 0) {
+				Application.LoadLevel ("Win Screen"); //winning this bitch woot
+			}
+
 	}
 
 	void OnCollisionEnter2D (Collision2D gameObjectHittingme){
@@ -259,8 +251,6 @@ public class BossScript : MonoBehaviour {
 		if (bossVulnerable == true && (gameObjectHittingme.gameObject.tag == "bullet")) {
 			bossHealth = bossHealth - 3f;
 			Destroy (gameObjectHittingme.gameObject);
-			//bossPose.sprite = bossSprite [1];
-
 		} 
 
 	}
@@ -373,61 +363,61 @@ public class BossScript : MonoBehaviour {
 	}
 
 	void ShootPlayer(){
-		if (bossVulnerable == false){ //projectile timer starts ticking up at game start; will fire at player as soon as player enters maxRange
-			projectileTimer += Time.deltaTime;
-		} else if (bossVulnerable == true){
-			projectileTimer += 3f * Time.deltaTime; // speeds up shooting rate if shields are down maybe???
-		}
+		if (gamePaused == false) {
 
-		if (projectileTimer >= projectileCoolDown && shieldOneActive == true) {
-			Vector2 projectileDirection = player.transform.position - transform.position;
-			distanceFromPlayer = Mathf.Abs (transform.position.x - player.transform.position.x);     //Must add mathf.abs to get absolute value otherwise distancefromplayer will always be less than maxrange in negative
+			if (bossVulnerable == false) { //projectile timer starts ticking up at game start; will fire at player as soon as player enters maxRange
+				projectileTimer += Time.deltaTime;
+			} else if (bossVulnerable == true) {
+				projectileTimer += 3f * Time.deltaTime; // speeds up shooting rate if shields are down maybe???
+			}
 
-			if (distanceFromPlayer <= maxRange) {
-				print ("playerWithinRange");         
-				GameObject projectileClone;
-				projectileClone = Instantiate (projectile, shootingPoint.transform.position, shootingPoint.transform.rotation) as GameObject;        //instantiates the projectile at shooting point gameobject
-				projectileClone.GetComponent<Rigidbody2D> ().velocity = projectileDirection * projectileSpeed;               
+			if (projectileTimer >= projectileCoolDown && shieldOneActive == true) {
+				Vector2 projectileDirection = player.transform.position - transform.position;
+				distanceFromPlayer = Mathf.Abs (transform.position.x - player.transform.position.x);     //Must add mathf.abs to get absolute value otherwise distancefromplayer will always be less than maxrange in negative
 
-				projectileTimer = 0;        
-				//bossPose.sprite = bossSprite [2];
+				if (distanceFromPlayer <= maxRange) {
+					print ("playerWithinRange");         
+					GameObject projectileClone;
+					projectileClone = Instantiate (projectile, shootingPoint.transform.position, shootingPoint.transform.rotation) as GameObject;        //instantiates the projectile at shooting point gameobject
+					projectileClone.GetComponent<Rigidbody2D> ().velocity = projectileDirection * projectileSpeed;               
 
-			} 
+					projectileTimer = 0;        
 
-		}
+				} 
 
-		if (projectileTimer >= projectileCoolDown && shieldTwoActive == true) {
-			Vector2 projectileDirection = player.transform.position - transform.position;
-			distanceFromPlayer = Mathf.Abs (transform.position.x - player.transform.position.x);     //Must add mathf.abs to get absolute value otherwise distancefromplayer will always be less than maxrange in negative
+			}
 
-			if (distanceFromPlayer <= maxRange) {
-				print ("playerWithinRange");         
-				GameObject projectileClone;
-				projectileClone = Instantiate (projectile, shootingPoint.transform.position, shootingPoint.transform.rotation) as GameObject;        //instantiates the projectile at shooting point gameobject
-				projectileClone.GetComponent<Rigidbody2D> ().velocity = projectileDirection * projectileSpeed;               
+			if (projectileTimer >= projectileCoolDown && shieldTwoActive == true) {
+				Vector2 projectileDirection = player.transform.position - transform.position;
+				distanceFromPlayer = Mathf.Abs (transform.position.x - player.transform.position.x);     //Must add mathf.abs to get absolute value otherwise distancefromplayer will always be less than maxrange in negative
 
-				projectileTimer = 0;       
-				//bossPose.sprite = bossSprite [2];
+				if (distanceFromPlayer <= maxRange) {
+					print ("playerWithinRange");         
+					GameObject projectileClone;
+					projectileClone = Instantiate (projectile, shootingPoint.transform.position, shootingPoint.transform.rotation) as GameObject;        //instantiates the projectile at shooting point gameobject
+					projectileClone.GetComponent<Rigidbody2D> ().velocity = projectileDirection * projectileSpeed;               
 
-			} 
+					projectileTimer = 0;       
 
-		}
+				} 
 
-		if (projectileTimer >= projectileCoolDown && bossVulnerable == true) {
-			Vector2 projectileDirection = player.transform.position - transform.position;
-			distanceFromPlayer = Mathf.Abs (transform.position.x - player.transform.position.x);     //Must add mathf.abs to get absolute value otherwise distancefromplayer will always be less than maxrange in negative
+			}
 
-			if (distanceFromPlayer <= maxRange) {
-				print ("playerWithinRange");         
-				GameObject projectileClone;
-				projectileClone = Instantiate (projectile, shootingPoint.transform.position, shootingPoint.transform.rotation) as GameObject;        //instantiates the projectile at shooting point gameobject
-				projectileClone.GetComponent<Rigidbody2D> ().velocity = projectileDirection * projectileSpeed;               
+			if (projectileTimer >= projectileCoolDown && bossVulnerable == true) {
+				Vector2 projectileDirection = player.transform.position - transform.position;
+				distanceFromPlayer = Mathf.Abs (transform.position.x - player.transform.position.x);     //Must add mathf.abs to get absolute value otherwise distancefromplayer will always be less than maxrange in negative
 
-				projectileTimer = 0;       
-				//bossPose.sprite = bossSprite [2];
+				if (distanceFromPlayer <= maxRange) {
+					print ("playerWithinRange");         
+					GameObject projectileClone;
+					projectileClone = Instantiate (projectile, shootingPoint.transform.position, shootingPoint.transform.rotation) as GameObject;        //instantiates the projectile at shooting point gameobject
+					projectileClone.GetComponent<Rigidbody2D> ().velocity = projectileDirection * projectileSpeed;               
 
-			} 
+					projectileTimer = 0;       
 
+				} 
+
+			}
 		}
 
 	}

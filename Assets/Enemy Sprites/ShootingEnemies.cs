@@ -12,6 +12,8 @@ public class ShootingEnemies : MonoBehaviour {
 
 	public float moveSpeed;
 
+	public bool gamePaused = false;
+
 	//public bool basicEnemyAttack = false;
 	public float basicEnemyHealth;
 	public bool basicEnemyDead = false;
@@ -39,58 +41,69 @@ public class ShootingEnemies : MonoBehaviour {
 		Vector3 currentPos = transform.position;
 		Vector3 playerPos = player.transform.position;
 
-
-		if (basicEnemyHealth < 1) {
-			basicEnemyDead = true;
-			Destroy(gameObject);
+		if (gamePaused == false && Input.GetKeyUp (KeyCode.P)) {
+			gamePaused = true;
+		} else if (gamePaused == true && Input.GetKeyUp (KeyCode.P)) {
+			gamePaused = false;
 		}
 
-		if (playerIsAttacking) {
-			playerAttackingTime = playerAttackingTime - 5f*Time.deltaTime;
-		}
-		if (playerAttackingTime > 0 && (Input.GetKey (KeyCode.Space))) {
-			playerIsAttacking = true;
-			playerIsntAttacking = false;
-		} else {
-			playerIsAttacking = false;
-			playerIsntAttacking = true;
-		}
-		if (playerIsntAttacking == true && (Input.GetKeyUp (KeyCode.Space))) {
-			playerAttackingTime = 2f;
-		}
+		if (gamePaused == false) {
 
 
-		currentPos.x += moveSpeed * Time.deltaTime;
-		if (currentPos.x > maxX && enemyHurt == false) {
-			currentPos.x = maxX ;
-			moveSpeed = -moveSpeed;
-			showSprite.sprite = dashingSprite [1];
-		} else if (currentPos.x < minX && enemyHurt == false) {
-			currentPos.x = minX;
-			moveSpeed = -moveSpeed;
-			showSprite.sprite = dashingSprite [0];
-		}
-		if (currentPos.x > maxX && enemyHurt == true) {
-			currentPos.x = maxX;
-			moveSpeed = -moveSpeed;
-			showSprite.sprite = dashingSprite [2];
-		} else if (currentPos.x < minX && enemyHurt == true) {
-			currentPos.x = minX;
-			moveSpeed = -moveSpeed;
-			showSprite.sprite = dashingSprite [3];
-		}
+			if (basicEnemyHealth < 1) {
+				basicEnemyDead = true;
+				Destroy (gameObject);
+			}
+
+			if (playerIsAttacking) {
+				playerAttackingTime = playerAttackingTime - 5f * Time.deltaTime;
+			}
+			if (playerAttackingTime > 0 && (Input.GetKey (KeyCode.Space))) {
+				playerIsAttacking = true;
+				playerIsntAttacking = false;
+			} else {
+				playerIsAttacking = false;
+				playerIsntAttacking = true;
+			}
+			if (playerIsntAttacking == true && (Input.GetKeyUp (KeyCode.Space))) {
+				playerAttackingTime = 2f;
+			}
+
+
+			currentPos.x += moveSpeed * Time.deltaTime;
+			if (currentPos.x > maxX && enemyHurt == false) {
+				currentPos.x = maxX;
+				moveSpeed = -moveSpeed;
+				showSprite.sprite = dashingSprite [1];
+			} else if (currentPos.x < minX && enemyHurt == false) {
+				currentPos.x = minX;
+				moveSpeed = -moveSpeed;
+				showSprite.sprite = dashingSprite [0];
+			}
+			if (currentPos.x > maxX && enemyHurt == true) {
+				currentPos.x = maxX;
+				moveSpeed = -moveSpeed;
+				showSprite.sprite = dashingSprite [2];
+			} else if (currentPos.x < minX && enemyHurt == true) {
+				currentPos.x = minX;
+				moveSpeed = -moveSpeed;
+				showSprite.sprite = dashingSprite [3];
+			}
 
 		
-		if (Input.GetKey (KeyCode.D)) {
-			playerFacingRight = true;
-		} else if (Input.GetKey (KeyCode.A)) {
-			playerFacingRight = false;
-		}
+			if (Input.GetKey (KeyCode.D)) {
+				playerFacingRight = true;
+			} else if (Input.GetKey (KeyCode.A)) {
+				playerFacingRight = false;
+			}
+
+		
 	
 
 
 
-		transform.position = currentPos;
+			transform.position = currentPos;
+		}
 }
 	void OnCollisionEnter2D (Collision2D gameObjectHittingme)
 	{
